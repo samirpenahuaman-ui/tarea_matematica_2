@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clasificador de Funciones</title>
+   <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Clasificador de Funciones</h1>
+        <p>Evaluación de función de primer grado: f(x) = bx + c</p>
+    </header>
+
+    <main>
+        <section class="contenedor-principal">
+            <h2>Esquema Vertical de la Interfaz</h2>
+
+            <article class="caja-coeficiente">
+                <h3>Coeficiente b</h3>
+                <p>b = <span id="valor-b">-</span></p>
+            </article>
+
+            <article class="caja-coeficiente">
+                <h3>Coeficiente c</h3>
+                <p>c = <span id="valor-c">-</span></p>
+            </article>
+
+            <button type="button" id="btn-generar">Generar / Cambiar</button>
+
+            <article class="caja-clasificacion" id="caja-lineal">
+                <h3>LINEAL</h3>
+                <p id="funcion-lineal">Presiona el botón para evaluar.</p>
+                <ul id="lista-lineal"></ul>
+            </article>
+
+            <article class="caja-clasificacion" id="caja-afin">
+                <h3>AFÍN</h3>
+                <p id="funcion-afin">Presiona el botón para evaluar.</p>
+                <ul id="lista-afin"></ul>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <p>
+            <a href="https://www.geogebra.org/classic" target="_blank" rel="noopener noreferrer">
+                Abrir GeoGebra 
+            </a>
+        </p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

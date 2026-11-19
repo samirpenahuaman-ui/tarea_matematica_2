@@ -1,0 +1,114 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f6f9;
+    color: #1e293b;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 24px;
+    color: #0f172a;
+    margin-bottom: 5px;
+}
+
+h2 {
+    font-size: 16px;
+    text-align: center;
+    color: #475569;
+    margin-bottom: 15px;
+   
+}
+
+h3 {
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #0f172a;
+}
+
+p {
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+ul {
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+li {
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+
+.contenedor-principal {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border: 2px solid #64748b;
+    padding: 20px;
+}
+
+.caja-coeficiente {
+    border: 1px solid #94a3b8;
+    padding: 12px;
+    margin-bottom: 12px;
+    text-align: center;
+    background-color: #f8fafc;
+}
+
+#btn-generar {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 15px;
+    background-color: #e2e8f0;
+    border: 2px solid #334155;
+    font-size: 16px;
+    font-weight: bold;
+    color: #0f172a;
+}
+
+#btn-generar:hover {
+    background-color: #cbd5e1;
+}
+
+.caja-clasificacion {
+    border: 2px dashed #0284c7;
+    padding: 15px;
+    margin-bottom: 15px;
+    background-color: #f0f9ff;
+}
+
+.activa {
+    border: 2px solid #0369a1;
+    background-color: #e0f2fe;
+}
+
+footer {
+    max-width: 600px;
+    margin: 15px auto 0 auto;
+    padding-top: 12px;
+    border-top: 1px solid #cbd5e1;
+    text-align: center;
+}
+
+a {
+    color: #0369a1;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
