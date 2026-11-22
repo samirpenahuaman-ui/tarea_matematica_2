@@ -1,114 +1,89 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #f4f6f9;
-    color: #1e293b;
-    padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #f4f6f9;
+  margin: 0;
+  padding: 20px;
+  color: #1f2937;
 }
 
-header {
-    text-align: center;
-    margin-bottom: 20px;
+.contenedor {
+  max-width: 960px;
+  margin: 0 auto;
 }
 
 h1 {
-    font-size: 24px;
-    color: #0f172a;
-    margin-bottom: 5px;
+  text-align: center;
 }
 
 h2 {
-    font-size: 16px;
-    text-align: center;
-    color: #475569;
-    margin-bottom: 15px;
-   
+  text-align: center;
 }
 
-h3 {
-    font-size: 16px;
-    margin-bottom: 8px;
-    color: #0f172a;
+.controles {
+  text-align: center;
+  background-color: #ffffff;
+  padding: 16px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
 
-p {
-    font-size: 15px;
-    line-height: 1.5;
+button {
+  padding: 10px 18px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: #2563eb;
+  color: #ffffff;
+  cursor: pointer;
 }
 
-ul {
-    margin-top: 10px;
-    padding-left: 20px;
+button:hover {
+  background-color: #1d4ed8;
 }
 
-li {
-    font-size: 14px;
-    margin-bottom: 6px;
+.formula {
+  font-size: 20px;
+  font-weight: bold;
+  color: #0f172a;
 }
 
-.contenedor-principal {
-    max-width: 600px;
-    margin: 0 auto;
-    background-color: #ffffff;
-    border: 2px solid #64748b;
-    padding: 20px;
+.cajas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px;
+  margin-bottom: 24px;
 }
 
-.caja-coeficiente {
-    border: 1px solid #94a3b8;
-    padding: 12px;
-    margin-bottom: 12px;
-    text-align: center;
-    background-color: #f8fafc;
-}
-
-#btn-generar {
-    display: block;
-    width: 100%;
-    padding: 14px;
-    margin-bottom: 15px;
-    background-color: #e2e8f0;
-    border: 2px solid #334155;
-    font-size: 16px;
-    font-weight: bold;
-    color: #0f172a;
-}
-
-#btn-generar:hover {
-    background-color: #cbd5e1;
-}
-
-.caja-clasificacion {
-    border: 2px dashed #0284c7;
-    padding: 15px;
-    margin-bottom: 15px;
-    background-color: #f0f9ff;
+.caja {
+  background-color: #ffffff;
+  border: 2px solid #cbd5e1;
+  border-radius: 10px;
+  padding: 14px;
+  text-align: center;
 }
 
 .activa {
-    border: 2px solid #0369a1;
-    background-color: #e0f2fe;
+  border-color: #16a34a;
+  background-color: #dcfce7;
 }
 
-footer {
-    max-width: 600px;
-    margin: 15px auto 0 auto;
-    padding-top: 12px;
-    border-top: 1px solid #cbd5e1;
-    text-align: center;
+.vista-algebra {
+  background-color: #ffffff;
+  padding: 16px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
 
-a {
-    color: #0369a1;
-    font-weight: bold;
-    text-decoration: none;
+#enlaceGeogebra {
+  display: inline-block;
 }
 
-a:hover {
-    text-decoration: underline;
+#fotoAlgebra {
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  max-width: 100%;
+  height: auto;
+  cursor: pointer;
 }

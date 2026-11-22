@@ -1,56 +1,55 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clasificador de Funciones</title>
-   <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clasificador de Funciones</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <main class="contenedor">
+    <h1>Clasificador de Funciones: f(x) = bx + c</h1>
 
-    <header>
-        <h1>Clasificador de Funciones</h1>
-        <p>Evaluación de función de primer grado: f(x) = bx + c</p>
-    </header>
+    <section class="controles">
+      <button id="btnGenerar" type="button">Generar datos aleatorios</button>
+      <p><strong>b:</strong> <span id="valorB">0</span> | <strong>c:</strong> <span id="valorC">0</span></p>
+      <p class="formula" id="formulaTexto">f(x) = 0</p>
+    </section>
 
-    <main>
-        <section class="contenedor-principal">
-            <h2>Esquema Vertical de la Interfaz</h2>
+    <section class="cajas">
+      <article class="caja" id="cajaConstante">
+        <h2>b = 0 ; c ≠ 0</h2>
+        <p><strong>Función constante</strong></p>
+        <p>f(x) = c</p>
+      </article>
 
-            <article class="caja-coeficiente">
-                <h3>Coeficiente b</h3>
-                <p>b = <span id="valor-b">-</span></p>
-            </article>
+      <article class="caja" id="cajaLineal">
+        <h2>c = 0 ; b ≠ 0</h2>
+        <p><strong>Función lineal</strong></p>
+        <p>f(x) = bx</p>
+      </article>
 
-            <article class="caja-coeficiente">
-                <h3>Coeficiente c</h3>
-                <p>c = <span id="valor-c">-</span></p>
-            </article>
+      <article class="caja" id="cajaNoFuncion">
+        <h2>b = 0 ; c = 0</h2>
+        <p><strong>No hay función</strong></p>
+        <p>Caso nulo</p>
+      </article>
 
-            <button type="button" id="btn-generar">Generar / Cambiar</button>
+      <article class="caja" id="cajaAfin">
+        <h2>b ≠ 0 ; c ≠ 0</h2>
+        <p><strong>Función afín</strong></p>
+        <p>f(x) = bx + c</p>
+      </article>
+    </section>
 
-            <article class="caja-clasificacion" id="caja-lineal">
-                <h3>LINEAL</h3>
-                <p id="funcion-lineal">Presiona el botón para evaluar.</p>
-                <ul id="lista-lineal"></ul>
-            </article>
+    <section class="vista-algebra">
+      <h2>Vista algebraica y gráfica</h2>
+      <a id="enlaceGeogebra" href="https://www.geogebra.org/classic?lang=es" target="_blank" rel="noopener noreferrer" title="Abrir en GeoGebra Clásico">
+        <img id="fotoAlgebra" alt="Gráfica y expresión algebraica de la función" width="480" height="320">
+      </a>
+    </section>
+  </main>
 
-            <article class="caja-clasificacion" id="caja-afin">
-                <h3>AFÍN</h3>
-                <p id="funcion-afin">Presiona el botón para evaluar.</p>
-                <ul id="lista-afin"></ul>
-            </article>
-        </section>
-    </main>
-
-    <footer>
-        <p>
-            <a href="https://www.geogebra.org/classic" target="_blank" rel="noopener noreferrer">
-                Abrir GeoGebra 
-            </a>
-        </p>
-    </footer>
-
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
