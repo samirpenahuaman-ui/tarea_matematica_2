@@ -1,3 +1,4 @@
+<!--(<!DOCTYPE html> a </head>): Configura el documento en español, tildes/símbolos (UTF-8), escala en pantalla y conecta style.css-->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -7,15 +8,20 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!--(<main class="contenedor">): Envuelve todo el contenido principal de la página.-->
   <main class="contenedor">
+   <!--(<h1>): Muestra el título principal del clasificador.-->
     <h1>Clasificador de Funciones: f(x) = bx + c</h1>
 
     <section class="controles">
+      <!--botón que dispara la generación aleatoria.-->
+      <!--(#valorB y #valorC): Los <span> guardan solo los números de b y c para cambiarlos sin borrar las etiquetas.-->
       <button id="btnGenerar" type="button">Generar datos aleatorios</button>
       <p><strong>b:</strong> <span id="valorB">0</span> | <strong>c:</strong> <span id="valorC">0</span></p>
+    <!--(#formulaTexto): Muestra la fórmula resultante.-->
       <p class="formula" id="formulaTexto">f(x) = 0</p>
     </section>
-
+<!--(<section class="cajas">): Las 4 tarjetas (<article class="caja">) con su id (#cajaConstante, #cajaLineal, #cajaNoFuncion, #cajaAfin) para cada caso.-->
     <section class="cajas">
       <article class="caja" id="cajaConstante">
         <h2>b = 0 ; c ≠ 0</h2>
@@ -44,12 +50,14 @@
 
     <section class="vista-algebra">
       <h2>Vista algebraica y gráfica</h2>
+      <!--(#enlaceGeogebra): Enlace que abre GeoGebra Clásico en una pestaña nueva.-->
       <a id="enlaceGeogebra" href="https://www.geogebra.org/classic?lang=es" target="_blank" rel="noopener noreferrer" title="Abrir en GeoGebra Clásico">
+        <!--(#fotoAlgebra): Imagen donde el JS dibuja la gráfica SVG.-->
         <img id="fotoAlgebra" alt="Gráfica y expresión algebraica de la función" width="480" height="320">
       </a>
     </section>
   </main>
-
+<!--(<script src="script.js"></script>): Carga el JS al final para que todos los elementos ya existan.-->
   <script src="script.js"></script>
 </body>
 </html>

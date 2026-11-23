@@ -1,3 +1,4 @@
+/*Toma los elementos del HTML con document.querySelector(...) (botón, <span> de b y c, fórmula, imagen y las 4 cajas).*/
 let botonGenerar = document.querySelector("#btnGenerar");
 let spanB = document.querySelector("#valorB");
 let spanC = document.querySelector("#valorC");
@@ -8,28 +9,50 @@ let cajaConstante = document.querySelector("#cajaConstante");
 let cajaLineal = document.querySelector("#cajaLineal");
 let cajaNoFuncion = document.querySelector("#cajaNoFuncion");
 let cajaAfin = document.querySelector("#cajaAfin");
-
-let indiceCaso = 0;
-
+/*(enteroAleatorio): Saca un número entero al azar entre min y max (en el código se usa de -3 a 3).*/
 function enteroAleatorio(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-
-function distintoDeCeroAleatorio(min, max) {
-  let num = 0;
-  while (num === 0) {
-    num = enteroAleatorio(min, max);
+/*(prepararCajas): Crea el párrafo .caracteristicaCaja dentro de cada caja si todavía no existe.*/
+function prepararCajas() {
+  let cajas = [cajaConstante, cajaLineal, cajaNoFuncion, cajaAfin];
+  for (let i = 0; i < cajas.length; i = i + 1) {
+    let detalle = cajas[i].querySelector(".caracteristicaCaja");
+    if (!detalle) {
+      detalle = document.createElement("p");
+      detalle.className = "caracteristicaCaja";
+      cajas[i].appendChild(detalle);
+    }
   }
-  return num;
 }
+/*(resetearCajas): Limpia la clase activa, los colores y los textos de características de las 4 cajas antes de cada sorteo.*/
+function resetearCajas() {
+  let cajas = [cajaConstante, cajaLineal, cajaNoFuncion, cajaAfin];
+  for (let i = 0; i < cajas.length; i = i + 1) {
+    cajas[i].classList.remove("activa");
+    cajas[i].style.backgroundColor = "#ffffff";
+    cajas[i].style.borderColor = "#cbd5e1";
+    cajas[i].style.color = "#1f2937";
 
-function limpiarCajas() {
-  cajaConstante.classList.remove("activa");
-  cajaLineal.classList.remove("activa");
-  cajaNoFuncion.classList.remove("activa");
-  cajaAfin.classList.remove("activa");
+    let detalle = cajas[i].querySelector(".caracteristicaCaja");
+    if (detalle) {
+      detalle.innerText = "";
+    }
+  }
 }
+/*(activarCajaConCaracteristica): Pinta en color la caja que corresponde y escribe sus características dentro de ella.*/
+function activarCajaConCaracteristica(caja, colorFondo, colorBorde, textoCaracteristica) {
+  caja.classList.add("activa");
+  caja.style.backgroundColor = colorFondo;
+  caja.style.borderColor = colorBorde;
+  caja.style.color = "#0f172a";
 
+  let detalle = caja.querySelector(".caracteristicaCaja");
+  if (detalle) {
+    detalle.innerText = textoCaracteristica;
+  }
+}
+/*(formatearFormula): Arma cómo se ve la fórmula (f(x) = ..., simplificando 1x/-1x o avisando cuando b = 0 y c = 0).*/
 function formatearFormula(b, c) {
   if (b === 0 && c === 0) {
     return "No hay función (no se puede graficar)";
@@ -57,7 +80,7 @@ function formatearFormula(b, c) {
   let parteC = c > 0 ? " + " + c : " - " + Math.abs(c);
   return "f(x) = " + parteB + parteC;
 }
-
+/*(construirSvgAlgebra): Dibuja el gráfico SVG (rejilla, ejes y la recta y = bx + c, o el aviso si no se puede graficar) y lo manda a fotoAlgebra.src.*/
 function construirSvgAlgebra(b, c, tipoTexto, formula) {
   let ancho = 480;
   let alto = 320;
@@ -101,7 +124,7 @@ function construirSvgAlgebra(b, c, tipoTexto, formula) {
     contenidoFuncion =
       '<line x1="' + px1 + '" y1="' + py1 + '" x2="' + px2 + '" y2="' + py2 + '" stroke="#38bdf8" stroke-width="3"/>';
   }
-
+/*(generarYClasificar): Sortea b y c entre -3 y 3, decide cuál de los 4 casos toca, actualiza textos, resalta la caja, pone su característica y genera la imagen.*/
   let svg =
     '<svg xmlns="http://www.w3.org/2000/svg" width="' + ancho + '" height="' + alto + '" viewBox="0 0 ' + ancho + ' ' + alto + '">' +
     '<rect width="' + ancho + '" height="' + alto + '" rx="10" fill="#0f172a"/>' +
@@ -121,44 +144,58 @@ function construirSvgAlgebra(b, c, tipoTexto, formula) {
 }
 
 function generarYClasificar() {
-  let b = 0;
-  let c = 0;
-  let tipoTexto = "";
+  let b = enteroAleatorio(-3, 3);
+  let c = enteroAleatorio(-3, 3);
 
-  limpiarCajas();
-
-  if (indiceCaso === 0) {
-    b = 0;
-    c = distintoDeCeroAleatorio(-3, 3);
-    tipoTexto = "Función constante";
-    cajaConstante.classList.add("activa");
-  } else if (indiceCaso === 1) {
-    b = distintoDeCeroAleatorio(-3, 3);
-    c = 0;
-    tipoTexto = "Función lineal";
-    cajaLineal.classList.add("activa");
-  } else if (indiceCaso === 2) {
-    b = 0;
-    c = 0;
-    tipoTexto = "No hay función";
-    cajaNoFuncion.classList.add("activa");
-  } else {
-    b = distintoDeCeroAleatorio(-3, 3);
-    c = distintoDeCeroAleatorio(-3, 3);
-    tipoTexto = "Función afín";
-    cajaAfin.classList.add("activa");
-  }
-
-  indiceCaso = (indiceCaso + 1) % 4;
+  prepararCajas();
+  resetearCajas();
 
   spanB.innerText = b;
   spanC.innerText = c;
+
+  let tipoTexto = "";
+
+  if (b === 0 && c !== 0) {
+    tipoTexto = "Función constante";
+    activarCajaConCaracteristica(
+      cajaConstante,
+      "#dcfce7",
+      "#16a34a",
+      "• Recta horizontal (pendiente 0).\n• Corta el eje y en (0, " + c + ").\n• No corta el eje x."
+    );
+  } else if (c === 0 && b !== 0) {
+    tipoTexto = "Función lineal";
+    activarCajaConCaracteristica(
+      cajaLineal,
+      "#dbeafe",
+      "#2563eb",
+      "• Recta inclinada que pasa por (0, 0).\n• Pendiente b = " + b + ".\n• Corta ambos ejes en el origen."
+    );
+  } else if (b === 0 && c === 0) {
+    tipoTexto = "No hay función";
+    activarCajaConCaracteristica(
+      cajaNoFuncion,
+      "#fef3c7",
+      "#d97706",
+      "• Condición b = 0 y c = 0.\n• No define una función.\n• No se puede graficar una recta."
+    );
+  } else {
+    tipoTexto = "Función afín";
+    activarCajaConCaracteristica(
+      cajaAfin,
+      "#ede9fe",
+      "#7c3aed",
+      "• Recta inclinada que no pasa por (0, 0).\n• Pendiente b = " + b + ".\n• Corta el eje y en (0, " + c + ")."
+    );
+  }
 
   let formula = formatearFormula(b, c);
   formulaTexto.innerText = formula;
 
   fotoAlgebra.src = construirSvgAlgebra(b, c, tipoTexto, formula);
 }
-
+/*Escucha el clic en #btnGenerar para repetir todo y ejecuta generarYClasificar() al abrir la página.*/
 botonGenerar.addEventListener("click", generarYClasificar);
+
+
 generarYClasificar();

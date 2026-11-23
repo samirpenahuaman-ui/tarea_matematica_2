@@ -1,3 +1,4 @@
+/*Define la fuente, el fondo gris claro, el margen/relleno y el color del texto general.*/
 body {
   font-family: Arial, sans-serif;
   background-color: #f4f6f9;
@@ -5,12 +6,12 @@ body {
   padding: 20px;
   color: #1f2937;
 }
-
+/*Limita el ancho máximo a 960px y centra el bloque en la pantalla.*/
 .contenedor {
   max-width: 960px;
   margin: 0 auto;
 }
-
+/*(h1 y h2): Centra los títulos.*/
 h1 {
   text-align: center;
 }
@@ -18,7 +19,7 @@ h1 {
 h2 {
   text-align: center;
 }
-
+/*Da formato de tarjeta blanca con bordes redondeados y sombra al bloque del botón, b, c y la fórmula.*/
 .controles {
   text-align: center;
   background-color: #ffffff;
@@ -27,7 +28,7 @@ h2 {
   margin-bottom: 20px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
-
+/*(button y button:hover): Estiliza el botón azul y cambia su tono al pasar el cursor por encima.*/
 button {
   padding: 10px 18px;
   font-size: 16px;
@@ -41,20 +42,20 @@ button {
 button:hover {
   background-color: #1d4ed8;
 }
-
+/*(.formula): Pone la fórmula en tamaño 20px, negrita y color oscuro.*/
 .formula {
   font-size: 20px;
   font-weight: bold;
   color: #0f172a;
 }
-
+/*(.cajas): Ordena las 4 tarjetas en una cuadrícula adaptable (display: grid) con separación (gap: 14px).*/
 .cajas {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 14px;
   margin-bottom: 24px;
 }
-
+/*(.caja): Define el aspecto base de cada tarjeta (fondo blanco, borde gris claro y texto centrado).*/
 .caja {
   background-color: #ffffff;
   border: 2px solid #cbd5e1;
@@ -62,12 +63,12 @@ button:hover {
   padding: 14px;
   text-align: center;
 }
-
+/*(.activa): Da el estilo verde de resaltado (borde y fondo verde) a la caja activa.*/
 .activa {
   border-color: #16a34a;
   background-color: #dcfce7;
 }
-
+/*(.vista-algebra): Da estilo de tarjeta centrada a la zona de la gráfica.*/
 .vista-algebra {
   background-color: #ffffff;
   padding: 16px;
@@ -75,11 +76,11 @@ button:hover {
   text-align: center;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
-
+/*(#enlaceGeogebra): Hace que el enlace se comporte como bloque en línea para envolver bien la imagen.*/
 #enlaceGeogebra {
   display: inline-block;
 }
-
+/*(#fotoAlgebra): Ajusta el borde, esquinas redondeadas, tamaño adaptable (max-width: 100%) y cursor de mano sobre la imagen.*/
 #fotoAlgebra {
   border: 1px solid #cbd5e1;
   border-radius: 8px;
